@@ -1,36 +1,32 @@
-# 9780_SalomeStierli
-Multiplexing Project
+# ZMB-IBEX-JOVE
+Code to process multiplexing data, acquired with the MD ImageXpress microscope.
 
-## Installation:
-Note: These steps work on the ZMB-VMs. Please adapt accordingly if used somewhere else.
+## Installation (Windows):
 
-* Open 'Anaconda Powershell Prompt (MinicondaZMB)'
-* When logging into a VM, the necessary conda-environment might not be installed. To list all installed environments, execute:  
-  `conda env list`
-* If 'zmb_hcs' is listed, you can skip ahead to 'Start Jupyter'. Otherwise continue with the installation steps:
-* Download and extract the repository at [https://github.com/fstur/zmb_hcs](https://github.com/fstur/zmb_hcs). (Under 'Code' -> 'Download ZIP')
-* In the Anaconda Powershell Prompt, change to the downloaded zmb_hcs directory:  
-  e.g.: `cd \path\to\zmb_hcs`
-* Create conda environment and install packages:  
+* Download and extract this repository at [https://github.com/ZMB-UZH/zmb-ibex-jove](https://github.com/ZMB-UZH/zmb-ibex-jove). (Either under 'Code' -> 'Download ZIP', or with `git clone git@github.com:ZMB-UZH/zmb-ibex-jove.git`)
+* Change to the downloaded zmb-ibex directory:  
+  e.g.: `cd C:\path\to\zmb-ibex-jove`
+* Recommended: Install in separate conda environment (e.g. via [miniconda](https://docs.anaconda.com/miniconda/)):  
 ```
-conda create -n zmb_hcs -c conda-forge python=3.9 -y
-conda activate zmb_hcs
-conda install -y -c conda-forge jupyterlab
-conda install -y -c conda-forge nb_conda_kernels
-pip install "napari[all]"
+conda create -n zmb-ibex-jove python=3.9 -y
+conda activate zmb-ibex-jove
+```
+* Install necessary packages:
+```
+pip install jupyterlab
 pip install "jax[cpu]==0.3.14" -f https://whls.blob.core.windows.net/unstable/index.html --use-deprecated legacy-resolver
+pip install ml-dtypes==0.2.0
 pip install basicpy
 pip install SimpleITK-SimpleElastix
-pip install .
+pip install git+https://github.com/ZMB-UZH/zmb-hcs
 ```
 
 ## Start Jupyter:
 
-* Open 'Anaconda Powershell Prompt (MinicondaZMB)'
 * Activate the conda environment:  
-  `conda activate zmb_hcs`
-* Change to directory, where jupyter-notebook is:  
-  e.g.: `cd Z:\home\u.sername\notebooks`
+  `conda activate zmb-ibex-jove`
+* Change to directory, where jupyter-notebooks are:  
+  e.g.: `cd C:\path\to\zmb-ibex-jove\examples`
 * Start jupyter-lab:  
-  `jupyter-lab --browser='C:/Program Files/Mozilla Firefox/firefox.exe %s'`
-
+  `jupyter-lab`
+* Edit and execute the notebooks
