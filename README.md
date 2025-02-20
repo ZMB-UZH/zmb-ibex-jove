@@ -14,7 +14,7 @@ conda activate zmb-ibex-jove
 * Install necessary packages:
 ```
 pip install jupyterlab
-pip install "jax[cpu]==0.3.14" -f https://whls.blob.core.windows.net/unstable/index.html --use-deprecated legacy-resolver
+pip install "jax[cpu]===0.4.14" -f https://whls.blob.core.windows.net/unstable/index.html --use-deprecated legacy-resolver
 pip install ml-dtypes==0.2.0
 pip install basicpy
 pip install SimpleITK-SimpleElastix
